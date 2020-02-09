@@ -25,14 +25,28 @@ As of: 1/27/2020 site functionality not added yet.
                 <div class="dropDownFlex" >
                     <a href="#/blog"><img src="icons/dark/blog_icon_H24.png" alt="blog" /></a>
                 </div>
-                <div class="dropDownFlex">
-                    <a href="#/searchUsers"><img src="icons/dark/account_dd_icon_H24.png" alt="account" /></a>
+                <div class="dropDownFlex" onclick="dropDown('dropContent3')">
+                    <img src="icons/dark/account_dd_icon_H24.png" alt="account" />
+                    <div class="dropContent" id="dropContent3">
+                        <div><p>Subitem 1</p></div>
+                        <div><p>Subitem 2</p></div>
+                        <div><p>Subitem 3</p></div>
+                    </div>
                 </div>
             </div>
         </div>
         <h1 style="text-align: center;">A dumping ground of user-generated content!</h1>
         <div class="outsideContent">
-            <div id="viewBox"></div>
+            <div id="viewBox">
+                
+                
+                <div class="contentColumn">
+                    <div class="inputDiv"></div>
+                    <div class = "tableDiv"></div>
+                </div>
+                
+                
+            </div>
         </div>
         <div class ="footer">
             <p style="color: white">Matthew Angelucci 2020</p>
@@ -45,7 +59,6 @@ As of: 1/27/2020 site functionality not added yet.
         <script type="text/javascript" src="js/components/searchUsers.js"></script>
         <script type="text/javascript" src="js/routeFW.js"></script>
         <script type="text/javascript" src="js/ajax.js"></script>
-        <script type="text/javascript" src ="js/makeTable.js"></script>
         <script type="text/javascript">
             var PORTRAIT_WIDTH = 730;
             
@@ -54,7 +67,7 @@ As of: 1/27/2020 site functionality not added yet.
             globalRoutes['#/'] = home;
             globalRoutes['#/home'] = home;
             globalRoutes['#/blog'] = blog;
-            globalRoutes['#/searchUsers'] = searchUsers;
+            globalRoutes['#searchUsers'] = searchUsers;
             
             var routing = routeFW({
                 viewID: "viewBox",
@@ -65,6 +78,13 @@ As of: 1/27/2020 site functionality not added yet.
             windowWidthInitCheck("content", "header", PORTRAIT_WIDTH);
             dropDown("dropDownFlex", "dropContent");
             
+            ajax("json/userPost.json", userPostJSON);
+            
+            function userPostJSON(jsObjIn){
+                console.log("\n\nThe object exists here.\n\n");
+                var first = jsObjIn[0].name;
+                console.log("\n\n" + first);
+            }
         </script>
     </body>
 </html>

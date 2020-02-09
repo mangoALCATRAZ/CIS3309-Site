@@ -112,6 +112,38 @@ and open the template in the editor.
                 border-radius: 25px;
                 text-align: justify;
             }
+            .contentColumn{
+                width: 90%;
+                max-width: 1396px;
+                min-width: 450px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 3%;
+                overflow: auto;
+                
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                background-color: #FFEAD1;
+                border-radius: 25px;
+                text-align: justify;
+                
+            }
+            .contentNoFlex{
+                width: 90%;
+                max-width: 1396px;
+                min-width: 450px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 3%;
+                overflow: auto;
+                
+                background-color: #FFEAD1;
+                border-radius: 25px;
+                text-align: justify;
+            }
+            
             .leftContent{
                 width: 50%;
                 float: left;

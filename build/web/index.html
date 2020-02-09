@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+://dump - A dumping ground of user-generated content.
+
+Source code: Features routing framework, dropdown menus, and a fluid layout. 
+
+As of: 1/27/2020 site functionality not added yet.
 -->
 <html>
     <head>
@@ -23,13 +25,8 @@ and open the template in the editor.
                 <div class="dropDownFlex" >
                     <a href="#/blog"><img src="icons/dark/blog_icon_H24.png" alt="blog" /></a>
                 </div>
-                <div class="dropDownFlex" onclick="dropDown('dropContent3')">
-                    <img src="icons/dark/account_dd_icon_H24.png" alt="account" />
-                    <div class="dropContent" id="dropContent3">
-                        <div><p>Subitem 1</p></div>
-                        <div><p>Subitem 2</p></div>
-                        <div><p>Subitem 3</p></div>
-                    </div>
+                <div class="dropDownFlex">
+                    <a href="#/searchUsers"><img src="icons/dark/account_dd_icon_H24.png" alt="account" /></a>
                 </div>
             </div>
         </div>
@@ -45,7 +42,10 @@ and open the template in the editor.
         <script type="text/javascript" src="js/windowWidthInitCheck.js"></script>
         <script type="text/javascript" src="js/components/blog.js"></script>
         <script type="text/javascript" src="js/components/home.js"></script>
+        <script type="text/javascript" src="js/components/searchUsers.js"></script>
         <script type="text/javascript" src="js/routeFW.js"></script>
+        <script type="text/javascript" src="js/ajax.js"></script>
+        <script type="text/javascript" src ="js/makeTable.js"></script>
         <script type="text/javascript">
             var PORTRAIT_WIDTH = 730;
             
@@ -54,6 +54,7 @@ and open the template in the editor.
             globalRoutes['#/'] = home;
             globalRoutes['#/home'] = home;
             globalRoutes['#/blog'] = blog;
+            globalRoutes['#/searchUsers'] = searchUsers;
             
             var routing = routeFW({
                 viewID: "viewBox",
@@ -63,6 +64,7 @@ and open the template in the editor.
             dropInit("dropContent"); //Initializes drop down menus to "hidden". Done because of errors found in debugging
             windowWidthInitCheck("content", "header", PORTRAIT_WIDTH);
             dropDown("dropDownFlex", "dropContent");
+            
         </script>
     </body>
 </html>
