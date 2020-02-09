@@ -48,6 +48,7 @@ As of: 1/27/2020 site functionality not added yet.
         <script type="text/javascript" src="js/components/blog.js"></script>
         <script type="text/javascript" src="js/components/home.js"></script>
         <script type="text/javascript" src="js/routeFW.js"></script>
+        <script type="text/javascript" src="js/ajax.js"></script>
         <script type="text/javascript">
             var PORTRAIT_WIDTH = 730;
             
@@ -65,6 +66,12 @@ As of: 1/27/2020 site functionality not added yet.
             dropInit("dropContent"); //Initializes drop down menus to "hidden". Done because of errors found in debugging
             windowWidthInitCheck("content", "header", PORTRAIT_WIDTH);
             dropDown("dropDownFlex", "dropContent");
+            
+            ajax("json/userPost.json", userPostJSON);
+            
+            function userPostJSON(jsObjIn){
+                console.log("\n\nThe object exists here.");
+            }
         </script>
     </body>
 </html>
