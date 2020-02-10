@@ -29,28 +29,29 @@ function makeTable(jsObjIn, inputDiv, tableDiv){
         tbody.id = "tableBody";
         table.appendChild(tbody);
         
-        var jsObjByUserId = sortJsObjByProp(jsObjIn, "webUserId");
-        table = updateTable(table, jsObjByUserId, tableDiv);
+        //var jsObjByUserId = sortJsObjByProp(jsObjIn, "webUserId");
+        updateTable(jsObjIn, tableDiv);
         
-        function updateTable(table, jsObj, tableDivName){
+        function updateTable(jsObj){
             var oldTBody = document.getElementById("tableBody");
-            var tableDiv = document.getElementById(tableDivName);
+            var tableDivElem = document.getElementById(tableDiv);
+            
+            
             table.removeChild(oldTBody);
-            tableDiv.removeChild(table);
+            tableDivElem.removeChild(table);
+            
+            table.appendChild(tbody);
+            tableDivElem.appendChild(table);
             
             var tBody = document.createElement("tbody");
             tBody.id = "tableBody";
             
             
             for(var i in jsObj){
-                tBody = addRowWithContent(jsObjIn[i], tBody, Object.getOwnPropertyNames(jsObj[0]));
+                addRowWithContent(jsObjIn[i], Object.getOwnPropertyNames(jsObj[0]));
             }
             
-            table.appendChild(tBody);
-            tableDiv.appendChild(table);
             
-            
-            return table;
         }
         
         
@@ -59,7 +60,7 @@ function makeTable(jsObjIn, inputDiv, tableDiv){
             
             for (var i = 1; i < retArr.length; i++){
                 if(retArr[i][prop].localeCompare(retArr[0][prop]) === -1){
-                    retArr.unshift(arr.splice(i, 1)[0]);
+                    retArr.unshift(retArr.splice(i, 1)[0]);
                 }
                 else if(retArr[i][prop].localeCompare(retArr[i-1][prop]) === 1){
                     continue;
@@ -81,22 +82,20 @@ function makeTable(jsObjIn, inputDiv, tableDiv){
             return inTBody;
         }
         
-        function addRowWithContent(obj, inTBody, propArr){
+        function addRowWithContent(obj, propArr){
             var tr_Body = document.createElement("tr");
-            inTBody.appendChild(tr_Body);
+            tbody.appendChild(tr_Body);
             
-            for (var j = 0; propArr.length; j++){
+            for (var j = 0; j < propArr.length; j++){
                 var td = document.createElement("td");
                 if(propArr[j] === "image"){
-                    td.innerHTMl = "<imgalt='json' src'" + obj[propArr[j]] + "' />";
+                    td.innerHTMl = "<img alt='json' src='" + obj[propArr[j]] + "' />";
                 }
                 else{
                     td.innerHTML = obj[propArr[j]];
                 }
                 tr_Body.appendChild(td);
             }
-            
-            return tr_Body;
-        }
-        
+       
+        } 
 }

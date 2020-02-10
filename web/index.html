@@ -28,6 +28,9 @@ As of: 1/27/2020 site functionality not added yet.
                 <div class="dropDownFlex">
                     <a href="#/searchUsers"><img src="icons/dark/account_dd_icon_H24.png" alt="account" /></a>
                 </div>
+                <div class="dropDownFlex">
+                    <a href="#/searchPosts"><img src="icons/dark/search_dd_icon_H24.png" alt="account" /></a>
+                </div>
             </div>
         </div>
         <h1 style="text-align: center;">A dumping ground of user-generated content!</h1>
@@ -43,6 +46,7 @@ As of: 1/27/2020 site functionality not added yet.
         <script type="text/javascript" src="js/components/blog.js"></script>
         <script type="text/javascript" src="js/components/home.js"></script>
         <script type="text/javascript" src="js/components/searchUsers.js"></script>
+        <script type="text/javascript" src="js/components/searchPosts.js"></script>
         <script type="text/javascript" src="js/routeFW.js"></script>
         <script type="text/javascript" src="js/ajax.js"></script>
         <script type="text/javascript" src ="js/makeTable.js"></script>
@@ -55,6 +59,7 @@ As of: 1/27/2020 site functionality not added yet.
             globalRoutes['#/home'] = home;
             globalRoutes['#/blog'] = blog;
             globalRoutes['#/searchUsers'] = searchUsers;
+            globalRoutes['#/searchPosts'] = searchPosts;
             
             var routing = routeFW({
                 viewID: "viewBox",
