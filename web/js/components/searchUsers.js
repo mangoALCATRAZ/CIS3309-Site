@@ -17,7 +17,7 @@ function searchUsers(inBox){
     document.getElementById(inBox).innerHTML = ""; // clears content
     document.getElementById(inBox).innerHTML = content;
     function fill(jsObjIn){
-        makeTable(jsObjIn, "inputDiv", "tableDiv");
+        makeTable(jsObjIn, "inputDiv", "tableDiv", "webUserId");
     
         
     }

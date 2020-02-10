@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-function makeTable(jsObjIn, inputDiv, tableDiv){
+function makeTable(jsObjIn, inputDiv, tableDiv, initSort){
         
         var input = document.createElement("input");
         document.getElementById(inputDiv).appendChild(input);
@@ -29,29 +29,22 @@ function makeTable(jsObjIn, inputDiv, tableDiv){
         tbody.id = "tableBody";
         table.appendChild(tbody);
         
-        //var jsObjByUserId = sortJsObjByProp(jsObjIn, "webUserId");
-        updateTable(jsObjIn, tableDiv);
+        var jsObjByUserId = sortJsObjByProp(jsObjIn, initSort);
+        table = updateTable(jsObjByUserId, tableDiv);
         
-        function updateTable(jsObj){
-            var oldTBody = document.getElementById("tableBody");
-            var tableDivElem = document.getElementById(tableDiv);
-            
-            
-            table.removeChild(oldTBody);
-            tableDivElem.removeChild(table);
-            
+        function updateTable(arr){
+            if(table.tbody){
+                table.removeChild(tbody);
+            }
+            var tbody = document.createElement("tbody");
             table.appendChild(tbody);
-            tableDivElem.appendChild(table);
             
-            var tBody = document.createElement("tbody");
-            tBody.id = "tableBody";
-            
-            
-            for(var i in jsObj){
-                addRowWithContent(jsObjIn[i], Object.getOwnPropertyNames(jsObj[0]));
+            for(var i in arr){
+                addRowWithContent(arr[i], Object.getOwnPropertyNames(arr[0]));
             }
             
             
+            return table;
         }
         
         
