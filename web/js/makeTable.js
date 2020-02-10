@@ -26,22 +26,77 @@ function makeTable(jsObjIn, inputDiv, tableDiv){
         }
         
         var tbody = document.createElement("tbody");
+        tbody.id = "tableBody";
         table.appendChild(tbody);
         
-        for(var i in jsObjIn){
-            var tr_Body = document.createElement("tr");
-            tbody.appendChild(tr_Body);
+        var jsObjByUserId = sortJsObjByProp(jsObjIn, "webUserId");
+        table = updateTable(table, jsObjByUserId, tableDiv);
+        
+        function updateTable(table, jsObj, tableDivName){
+            var oldTBody = document.getElementById("tableBody");
+            var tableDiv = document.getElementById(tableDivName);
+            table.removeChild(oldTBody);
+            tableDiv.removeChild(table);
             
-            for(var j = 0; j < propArr.length; j++){
-                var td = document.createElement("td");
-                if(propArr[j] === "image"){
-                    td.innerHTML = "<img alt='json' src='" + jsObjIn[i][propArr[j]] + "' />";
+            var tBody = document.createElement("tbody");
+            tBody.id = "tableBody";
+            
+            
+            for(var i in jsObj){
+                tBody = addRowWithContent(jsObjIn[i], tBody, Object.getOwnPropertyNames(jsObj[0]));
+            }
+            
+            table.appendChild(tBody);
+            tableDiv.appendChild(table);
+            
+            
+            return table;
+        }
+        
+        
+        function sortJsObjByProp(jsObjIn, prop){
+            var retArr = jsObjIn;
+            
+            for (var i = 1; i < retArr.length; i++){
+                if(retArr[i][prop].localeCompare(retArr[0][prop]) === -1){
+                    retArr.unshift(arr.splice(i, 1)[0]);
+                }
+                else if(retArr[i][prop].localeCompare(retArr[i-1][prop]) === 1){
+                    continue;
                 }
                 else{
-                    td.innerHTML = jsObjIn[i][propArr[j]];
+                    for(var j = 1; j < i; j++){
+                        if(retArr[i][prop].localeCompare(retArr[j-1][prop]) === 1 && retArr[i][prop].localeCompare(retArr[j][prop]) === -1){
+                            retArr.splice(j, 0, retArr.splice(i, 1)[0]);
+                        }
+                    }
+                }
+            }
+            
+            return retArr;
+        }
+        
+        function removeRowWithContent(obj, inTBody, propArr, inTr){
+            inTBody.removeChild(inTr);
+            return inTBody;
+        }
+        
+        function addRowWithContent(obj, inTBody, propArr){
+            var tr_Body = document.createElement("tr");
+            inTBody.appendChild(tr_Body);
+            
+            for (var j = 0; propArr.length; j++){
+                var td = document.createElement("td");
+                if(propArr[j] === "image"){
+                    td.innerHTMl = "<imgalt='json' src'" + obj[propArr[j]] + "' />";
+                }
+                else{
+                    td.innerHTML = obj[propArr[j]];
                 }
                 tr_Body.appendChild(td);
             }
+            
+            return tr_Body;
         }
         
 }
