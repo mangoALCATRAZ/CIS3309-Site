@@ -29,6 +29,21 @@ and open the template in the editor.
                 font-family: Arial, Helvetica, sans-serif;
                 
             }
+            thead{
+                background-color: #E6C59D;
+                color: white;
+            }
+            thead td{
+                padding: 5px 10px 5px 10px;
+            }
+            thead td:hover{
+                background-color: #C09867;
+                
+            }
+            
+            td{
+                text-align: center;
+            }
             body{
                 background-color: #E6C59D;
                 margin: 0;

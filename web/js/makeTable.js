@@ -6,6 +6,8 @@
 
 function makeTable(jsObjIn, inputDiv, tableDiv, initSort){
         
+        var curJsObjIn = jsObjIn;
+        
         var input = document.createElement("input");
         document.getElementById(inputDiv).appendChild(input);
     
@@ -23,6 +25,11 @@ function makeTable(jsObjIn, inputDiv, tableDiv, initSort){
             var td = document.createElement("td");
             td.innerHTML = propArr[i];
             tr_Head.appendChild(td);
+            
+            td.onclick = function(){
+                var sortedArr = sortJsObjByProp(curJsObjIn, this.innerHTML);
+                updateTable(sortedArr);
+            };
         }
         
         var tbody = document.createElement("tbody");
@@ -42,6 +49,7 @@ function makeTable(jsObjIn, inputDiv, tableDiv, initSort){
                     arr[arrIncrem] = jsObjIn[i];
                     arrIncrem++;
                 }
+                curJsObjIn = arr;
             }
             
             updateTable(arr);
@@ -98,6 +106,8 @@ function makeTable(jsObjIn, inputDiv, tableDiv, initSort){
                 var td = document.createElement("td");
                 if(propArr[j].toLowerCase() === "image" || propArr[j].toLowerCase() === "imgurl" || propArr[j].toLowerCase() === "userimage"){
                     td.innerHTML = "<a href='" + obj[propArr[j]] + "'><img src='" + obj[propArr[j]] + "' alt='JSON' /></a>";
+                    
+                    
                 }
                 else{
                     td.innerHTML = obj[propArr[j]];
