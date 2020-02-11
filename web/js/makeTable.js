@@ -32,11 +32,26 @@ function makeTable(jsObjIn, inputDiv, tableDiv, initSort){
         var jsObjByUserId = sortJsObjByProp(jsObjIn, initSort);
         table = updateTable(jsObjByUserId, tableDiv);
         
+        input.addEventListener('keyup', function(){
+            var inputString = this.value;
+            
+            var arr = [];
+            var arrIncrem = 0;
+            for(var i in jsObjIn){
+                if(jsObjIn[i]["userEmail"].toLowerCase().includes(inputString.toLowerCase())){
+                    arr[arrIncrem] = jsObjIn[i];
+                    arrIncrem++;
+                }
+            }
+            
+            updateTable(arr);
+        });
+        
         function updateTable(arr){
-            if(table.tbody){
+            if(tbody.firstChild){
                 table.removeChild(tbody);
             }
-            var tbody = document.createElement("tbody");
+            tbody = document.createElement("tbody");
             table.appendChild(tbody);
             
             for(var i in arr){
