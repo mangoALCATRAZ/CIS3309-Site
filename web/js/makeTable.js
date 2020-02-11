@@ -48,8 +48,8 @@ function makeTable(jsObjIn, inputDiv, tableDiv, initSort){
         }
         
         
-        function sortJsObjByProp(jsObjIn, prop){
-            var retArr = jsObjIn;
+        function sortJsObjByProp(retArr, prop){
+            
             
             for (var i = 1; i < retArr.length; i++){
                 if(retArr[i][prop].localeCompare(retArr[0][prop]) === -1){
@@ -70,10 +70,10 @@ function makeTable(jsObjIn, inputDiv, tableDiv, initSort){
             return retArr;
         }
         
-        function removeRowWithContent(obj, inTBody, propArr, inTr){
-            inTBody.removeChild(inTr);
-            return inTBody;
-        }
+        //function removeRowWithContent(obj, inTBody propArr, inTr){
+           // inTBody.removeChild(inTr);
+         //  return inTBody;
+       // }
         
         function addRowWithContent(obj, propArr){
             var tr_Body = document.createElement("tr");
@@ -81,8 +81,8 @@ function makeTable(jsObjIn, inputDiv, tableDiv, initSort){
             
             for (var j = 0; j < propArr.length; j++){
                 var td = document.createElement("td");
-                if(propArr[j] === "image"){
-                    td.innerHTMl = "<img alt='json' src='" + obj[propArr[j]] + "' />";
+                if(propArr[j].toLowerCase() === "image" || propArr[j].toLowerCase() === "imgurl" || propArr[j].toLowerCase() === "userimage"){
+                    td.innerHTML = "<a href='" + obj[propArr[j]] + "'><img src='" + obj[propArr[j]] + "' alt='JSON' /></a>";
                 }
                 else{
                     td.innerHTML = obj[propArr[j]];

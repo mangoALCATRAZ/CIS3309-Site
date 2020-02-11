@@ -36,6 +36,10 @@ and open the template in the editor.
                 width: 100%;
             }         
             
+            td img{
+                max-width: 100px;
+            }
+            
             .header{
                 width: 100%;
                 background-color: #C09867;

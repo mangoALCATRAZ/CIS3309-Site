@@ -2,7 +2,7 @@
     {
         "userPostId": "4",
         "name": "test2",
-        "imgUrl": "pics/img2.png",
+        "imgUrl": "https://scontent-lga3-1.xx.fbcdn.net/v/t1.15752-9/84155786_227608838410805_8779302951370883072_n.png?_nc_cat=108&_nc_ohc=TH_aU9ml_2sAX8MIROk&_nc_ht=scontent-lga3-1.xx&oh=0898fa690b22ce88788a9f773e36f47b&oe=5EBDB833",
         "description": "test2",
         "date": "2020-01-26",
         "likeCount": "15",
@@ -13,7 +13,7 @@
     {
         "userPostId": "5",
         "name": "test3",
-        "imgUrl": "pics/img3.png",
+        "imgUrl": "https://i.redd.it/925122foe5g41.png",
         "description": "test 3",
         "date": null,
         "likeCount": "75",
@@ -23,7 +23,7 @@
     {
         "userPostId": "7",
         "name": "test4",
-        "imgUrl": "pics/img4.png",
+        "imgUrl": "pics/img4.jpg",
         "description": "test 4",
         "date": null,
         "likeCount": "0",
@@ -33,7 +33,7 @@
     {
         "userPostId": "8",
         "name": "test5",
-        "imgUrl": "pics/img5.png",
+        "imgUrl": "https://i.redd.it/ec3049mll5g41.png",
         "description": "test 5",
         "date": "2020-01-23",
         "likcCount": "16",
