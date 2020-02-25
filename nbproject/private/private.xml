@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site/web/index.html</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site/web/js/components/blog.js</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site/web/js/components/searchUsers.js</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site/web/js/ajax.js</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site/web/js/makeTable.js</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site/web/js/routeFW.js</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site/web/json/allWebUsers.json</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site/web/style/style.css</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Sit/web/js/ajax.js</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Sit/web/js/components/searchUsers.js</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Sit/web/js/components/blog.js</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Sit/web/index.html</file>
         </group>
     </open-files>
 </project-private>

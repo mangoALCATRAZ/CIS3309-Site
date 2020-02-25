@@ -6,7 +6,7 @@
 
 
 function searchUsers(inBox){
-    ajax("json/allWebUsers.json", fill);
+    ajax("webAPIs/2_listUsersAPI_most_code_in_classes.jsp", fill);
     
     
     
@@ -17,8 +17,12 @@ function searchUsers(inBox){
     document.getElementById(inBox).innerHTML = ""; // clears content
     document.getElementById(inBox).innerHTML = content;
     function fill(jsObjIn){
-        makeTable(jsObjIn, "inputDiv", "tableDiv", "webUserId");
-    
+        if(jsObjIn.dbError.length > 0){
+            document.getElementById(inBox).innerHTML = jsObjIn.dbError;
+        }
+        else{
+            makeTable(jsObjIn.webUserList, "inputDiv", "tableDiv", "webUserId");
+        }
         
     }
    
