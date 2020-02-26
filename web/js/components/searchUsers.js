@@ -6,7 +6,7 @@
 
 
 function searchUsers(inBox){
-    ajax("webAPIs/2_listUsersAPI_most_code_in_classes.jsp", fill);
+    ajax("webAPIs/listUsersApi.jsp", fill);
     
     
     
@@ -21,7 +21,7 @@ function searchUsers(inBox){
             document.getElementById(inBox).innerHTML = jsObjIn.dbError;
         }
         else{
-            makeTable(jsObjIn.webUserList, "inputDiv", "tableDiv", "webUserId");
+            makeTable(jsObjIn.List, "inputDiv", "tableDiv", "webUserId");
         }
         
     }

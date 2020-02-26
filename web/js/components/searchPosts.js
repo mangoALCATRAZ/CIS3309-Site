@@ -6,7 +6,7 @@
 
 
 function searchPosts(inBox){
-    ajax("json/userPost.json", fill);
+    ajax("webAPIs/listPostApi.jsp", fill);
     
     
     
@@ -17,8 +17,12 @@ function searchPosts(inBox){
     document.getElementById(inBox).innerHTML = ""; // clears content
     document.getElementById(inBox).innerHTML = content;
     function fill(jsObjIn){
-        makeTable(jsObjIn, "inputDiv", "tableDiv", "userEmail");
-    
+        if(jsObjIn.dbError.length > 0){
+            document.getElementById(inBox).innerHTML = jsObjIn.dbError;
+        }
+        else{
+            makeTable(jsObjIn.List, "inputDiv", "tableDiv", "userEmail");
+        }
         
     }
    

@@ -1,6 +1,6 @@
-package model.webUser;
+package StringData;
 
-import dbUtils.FormatUtils;
+import dbUtils.*;
 import java.sql.ResultSet;
 
 
@@ -13,7 +13,7 @@ import java.sql.ResultSet;
  * There are no getter or setter methods since we are not trying to
  * protect this data in any way.  We want to let the JSP page have
  * free access to put data in or take it out. */
-public class StringData { 
+public class StringDataUser implements StringDataInterface { 
 
     public String webUserId = "";
     public String userEmail = "";
@@ -27,11 +27,13 @@ public class StringData {
     public String errorMsg = "";
 
     // default constructor leaves all data members with empty string (Nothing null).
-    public StringData() {
+    
+    public StringDataUser() {
     }
 
     // overloaded constructor sets all data members by extracting from resultSet.
-    public StringData(ResultSet results) {
+
+    public StringDataUser(ResultSet results) {
         try {
             // plainInteger returns integer converted to string with no commas.
             this.webUserId = FormatUtils.plainInteger(results.getObject("web_user_id"));
@@ -47,12 +49,14 @@ public class StringData {
         }
     }
 
+    @Override
     public int getCharacterCount() {
         String s = this.webUserId + this.userEmail + this.userPassword + this.image + this.birthday
                 + this.membershipFee + this.userRoleId + this.userRoleType;
         return s.length();
     }
 
+    @Override
     public String toString() {
         return "Web User Id:" + this.webUserId
                 + ", User Email: " + this.userEmail

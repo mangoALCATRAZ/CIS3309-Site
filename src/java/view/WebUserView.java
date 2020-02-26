@@ -1,25 +1,28 @@
 package view;
 
 // classes imported from java.sql.*
+import StringData.StringDataList;
+import StringData.StringDataUser;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import model.webUser.*;
 
 // classes in my project
 import dbUtils.*;
 
 public class WebUserView {
 
-    public static StringDataList getAllUsers(DbConn dbc) {
+    public static StringDataList getAll(DbConn dbc, String sql) {
 
         //PreparedStatement stmt = null;
         //ResultSet results = null;
         StringDataList sdl = new StringDataList();
+        
+        if(sql == null){
+            return null; // no valid sql provided.
+        }
+        
         try {
-            String sql = "SELECT web_user_id, user_email, user_password, image, membership_fee, birthday, "+
-                    "web_user.user_role_id, user_role_type "+
-                    "FROM web_user, user_role where web_user.user_role_id = user_role.user_role_id " + 
-                    "ORDER BY web_user_id ";  // you always want to order by something, not just random order.
+            
             PreparedStatement stmt = dbc.getConn().prepareStatement(sql);
             ResultSet results = stmt.executeQuery();
             while (results.next()) {
@@ -28,7 +31,7 @@ public class WebUserView {
             results.close();
             stmt.close();
         } catch (Exception e) {
-            StringData sd = new StringData();
+            StringDataUser sd = new StringDataUser();
             sd.errorMsg = "Exception thrown in WebUserView.allUsersAPI(): " + e.getMessage();
             sdl.add(sd);
         }

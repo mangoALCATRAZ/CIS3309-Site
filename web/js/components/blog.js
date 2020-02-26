@@ -9,6 +9,9 @@ function blog(viewID){
                        </div>
                        <div class="content">
                             <p class="centerText">Blog 2 - DB Setup and Routing Framework - 1/26/2020<br /><br />The database portion of this exercise was easy enough. I already have experience working with MySQL and relational database software, so I did not have much trouble following along with the instructions and understanding the SQL syntax. The main difficulty encountered in this portion was just relearning the rules of SQL syntax and how the MySQL software works, as well as setting up the network connection: that took some time. <br /><br />Here is a <a href="angelucci_HW2_submission.docx">link to the Word Document</a> for the DB portion of this HW submission.<br /><br />The routing portion of this assignment, on the other hand, was completely foreign to me. However, I studied the more advanced piece of sample code provided and managed to develop and understanding as to how the consumer/producer functionality of this framework operate. I can see that this is a useful setup, as the current framework allows for extensibility, largely remaining the same despite website changes. All of the parameters are set in the HTML document, meaning that the function is allocated just for its use, and doesn't need to be altered when website data changes. This should be incredibly useful moving forward. Once I understood the functionality of this framework, the assignment became easier. It was the understanding part that took time.<br /></p>'
+                       </div>
+                       <div class="content">
+                            <p class="centerTExt">Blog 5 - Web API P"
                        </div>`;
     
     document.getElementById(viewID).innerHTML = blogContent;
