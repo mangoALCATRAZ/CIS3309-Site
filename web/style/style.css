@@ -104,7 +104,7 @@ and open the template in the editor.
                 background-color: black;
                 position: absolute;
                 z-index: 2;
-                width: 12.5%;
+                width: 7%;
                 visibility: hidden;
             }
             .dropContent div:hover{
