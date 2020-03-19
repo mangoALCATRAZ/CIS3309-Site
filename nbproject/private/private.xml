@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_HW5/src/java/StringData/StringDataInterface.java</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_HW5/web/webAPIs/getProfileAPI.jsp</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_HW5/src/java/models/webUser/DbMods.java</file>
             <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_HW5/src/java/StringData/StringDataList.java</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_HW5/web/webAPIs/listPostApi.jsp</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_HW5/web/js/ajax.js</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_HW5/src/java/models/webUser/StringDataUser.java</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_HW5/web/js/components/searchPosts.js</file>
             <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_HW5/src/java/models/userPost/StringDataPost.java</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_HW5/src/java/StringData/StringData.java</file>
             <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_HW5/web/webAPIs/logonAPI.jsp</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_HW5/web/webAPIs/logoffAPI.jsp</file>
         </group>
     </open-files>
 </project-private>
