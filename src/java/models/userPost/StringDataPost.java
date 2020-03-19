@@ -1,5 +1,6 @@
-package StringData;
+package models.userPost;
 
+import StringData.StringData;
 import dbUtils.*;
 import java.sql.ResultSet;
 
@@ -13,7 +14,7 @@ import java.sql.ResultSet;
  * There are no getter or setter methods since we are not trying to
  * protect this data in any way.  We want to let the JSP page have
  * free access to put data in or take it out. */
-public class StringDataPost implements StringDataInterface{ 
+public class StringDataPost extends StringData{ 
 
     public String userPostId = "";
     public String name = "";
@@ -23,8 +24,6 @@ public class StringDataPost implements StringDataInterface{
     public String date = "";
     public String userEmail = "";   // Foreign Key
     public String image = ""; // getting it from joined user_role table.
-
-    public String errorMsg = "";
 
     // default constructor leaves all data members with empty string (Nothing null).S
     public StringDataPost() {
@@ -46,7 +45,7 @@ public class StringDataPost implements StringDataInterface{
             this.errorMsg = "Exception thrown in model.webUser.StringData (the constructor that takes a ResultSet): " + e.getMessage();
         }
     }
-
+    
     @Override
     public int getCharacterCount() {
         String s = this.userPostId + this.name + this.imgUrl + this.description + this.likeCount

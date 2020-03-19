@@ -1,6 +1,7 @@
 package StringData;
 
-import StringData.StringDataUser;
+import models.userPost.StringDataPost;
+import models.webUser.StringDataUser;
 import java.util.ArrayList;
 import java.sql.ResultSet;
 import dbUtils.*;
@@ -16,7 +17,7 @@ import java.util.logging.Logger;
 public class StringDataList {
 
     public String dbError = "";
-    public ArrayList<StringDataInterface> List = new ArrayList();
+    public ArrayList<StringData> List = new ArrayList();
 
     // Default constructor leaves StringDataList objects nicely set with properties 
     // indicating no database error and 0 elements in the list.
@@ -24,7 +25,7 @@ public class StringDataList {
     }
 
     // Adds one StringData element to the array list of StringData elements
-    public void add(StringDataInterface stringData) {
+    public void add(StringData stringData) {
         this.List.add(stringData);
     }
 
@@ -43,7 +44,7 @@ public class StringDataList {
             return;
         }
         
-        StringDataInterface sd;
+        StringData sd;
         switch (name.toLowerCase()) {
             case "user_post_id":
                 sd = new StringDataPost(results);

@@ -12,10 +12,12 @@ import java.sql.ResultSet;
  *
  * @author woah dude
  */
-public interface StringDataInterface {
+public abstract class StringData{
 
     
-    public int getCharacterCount();
+    public String errorMsg = "";
+    public abstract int getCharacterCount();
     
-    public String toString();
+    @Override
+    public abstract String toString();
 }

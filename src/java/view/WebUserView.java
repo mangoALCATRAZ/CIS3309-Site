@@ -2,7 +2,7 @@ package view;
 
 // classes imported from java.sql.*
 import StringData.StringDataList;
-import StringData.StringDataUser;
+import models.webUser.StringDataUser;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
