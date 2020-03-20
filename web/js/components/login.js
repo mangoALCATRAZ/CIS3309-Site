@@ -11,20 +11,25 @@ login.msgId = "";
 
 login.UI = function(id){
     var content = '<div class="content">\n\
-                        <br />Email Address<input type="text" id="loginEmail" />\n\
-                        <br />Password<input type="password" id="loginPass"/>\n\
-                        <br /><input type="button" value="submit" onclick="login.findUser("loginEmail", "loginPass", "msgArea")/>\n\
+                        <br />Email Address<input type="text" name="loginEmail" id="loginEmail" />\n\
+                        <br />Password<input type="password" name="loginPass" id="loginPass"/>\n\
+                        <br /><input type="button" id="loginButton" value="submit" onclick="login.findUser(document.getElementById(`loginEmail`).value, document.getElementById(`loginPass`).value, `msgArea`)" />\n\
                         <br /><br />\n\
                         <div id="msgArea"></div>\n\
                    </div>';
-    document.getElementbyId(id).innerHTML = content;
+    window.location.search = "";
+    document.getElementById(id).innerHTML = content;
     
-    
+    //document.getElementById("loginButton").addEventListener("click", login.findUser(document.getElementById("loginEmail").value, document.getElementById("loginPass").value), "msgArea");
 };
 
 login.findUser = function(emailIn, passIn, msgIdIn){
-    window.location.search = "?email=" + emailIn + "&pass=" + passIn; // page refreshes after this
+    var URLappend = "?email=" + emailIn + "&pass=" + passIn; // page refreshes after this
+    history.pushState(null, '', URLappend); // should append the current url without refreshing. this took forever to figurre out.
     this.msgId = msgIdIn;
+    
+    var pleaseWait = "<p>Plesae Wait...</p>";
+    document.getElementById(this.msgId).innerHTML = pleaseWait;
     
     ajax("webAPIs/logonAPI.jsp", this.results);
     // query is picked up by server-side and is handled.
@@ -39,11 +44,13 @@ login.results = function(jsObjIn){
     
     var err = jsObjIn.List[0].errorMsg;
     if(err !== ""){
+        document.getElementById("msgArea").innerHTML = "";
         alert(err);
+        
     }
     else{
-        document.getElementByID(this.msgId).innerHTML = "";
-        document.getElementById(this.msgId).innerHTML = content;
+        document.getElementById("msgArea").innerHTML = "";
+        document.getElementById("msgArea").innerHTML = content;
         makeTable(jsObjIn.List, "inputDiv", "tableDiv", "userEmail");
     }
 };
