@@ -35,8 +35,16 @@ function ajax (params){
         // readyState == 4 means that the http request is complete
         if (httpReq.readyState === 4) {
             if (httpReq.status === 200) {
-                var obj = JSON.parse(httpReq.responseText);
-                params.successFn(obj);  // like the jQuery ajax call, pass back JSON already parsed to JS objecg
+                
+                try{
+                    var obj = JSON.parse(httpReq.responseText);
+                    params.successFn(obj);  // like the jQuery ajax call, pass back JSON already parsed to JS objecg
+                }
+                catch(Exception){
+                    log("Error in parsing json. Treating as if there is no JSON intended to be passed, and calling function without params.");
+                    params.successFn();
+                }
+                
             } else {
                 // First use of property creates new (custom) property
                 //document.getElementById(params.errorId).innerHTML = "Error (" + httpReq.status + " " + httpReq.statusText +
