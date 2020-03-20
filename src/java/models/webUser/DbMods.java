@@ -24,7 +24,7 @@ public class DbMods {
                     + "web_user.user_role_id, user_role_type "
                     + "FROM web_user, user_role "
                     + "WHERE web_user.user_role_id = user_role.user_role_id "
-                    + "AND user_email = ? and user_password = ? ";
+                    + "AND user_email = ? and user_password = ?;";
             PreparedStatement pStatement = dbcIn.getConn().prepareStatement(sql);
             pStatement.setString(1, email);
             pStatement.setString(2, pw);

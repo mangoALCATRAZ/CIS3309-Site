@@ -1,28 +1,52 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-function ajax(url, func){
-    var httpReq = new XMLHttpRequest();
-    if(!httpReq){
-        alert('Cannot create XMLHTTP interface');
-        return false;
+// ********************** ajax *************************************   
+// Make an ajax call to the given url, then if the call was successful, 
+// call the Success Callback fn, otherwise, set an error message into the 
+// DOM element that has id 'errorId'.
+function ajax (params){
+    
+    // expecting params properties url, successFn, and errorId
+    if (!params || !params.url || !params.successFn) {
+        alert ("function ajax requires an input parameter object with properties: url, successFn.");
+        return;
+    }
+
+    var httpReq;
+    if (window.XMLHttpRequest) {
+        httpReq = new XMLHttpRequest(); //For Firefox, Safari, Opera
+    } else if (window.ActiveXObject) {
+        httpReq = new ActiveXObject("Microsoft.XMLHTTP"); //For IE 5+
+    } else {
+        alert('ajax not supported');
     }
     
-    httpReq.onreadystatechange = parseFunction;
-    httpReq.open('GET', url);
-    httpReq.send();
-    
-    function parseFunction(){
-        if(httpReq.readyState === XMLHttpRequest.DONE){
-            if(httpReq.status === 200){
-                var rawJSON = httpReq.responseText;
-                console.log(rawJSON);
-                var jsObj = JSON.parse(rawJSON);
-                func(jsObj);
+    if(!params.query){
+        params.query = "";
+    }
+
+    console.log("ready to get content " + params.url + params.query);
+    var send = params.url + params.query; // url plus query, if any, to be sent in the request.
+    httpReq.open("GET", send); // specify which page you want to get
+
+    // Ajax calls are asyncrhonous (non-blocking). Specify the code that you 
+    // want to run when the response (to the http request) is available. 
+    httpReq.onreadystatechange = function () {
+
+        // readyState == 4 means that the http request is complete
+        if (httpReq.readyState === 4) {
+            if (httpReq.status === 200) {
+                var obj = JSON.parse(httpReq.responseText);
+                params.successFn(obj);  // like the jQuery ajax call, pass back JSON already parsed to JS objecg
+            } else {
+                // First use of property creates new (custom) property
+                //document.getElementById(params.errorId).innerHTML = "Error (" + httpReq.status + " " + httpReq.statusText +
+                        //") while attempting to read '" + params.url + "'";
+                  alert("Error (" + httpReq.status + " " + httpReq.statusText +
+                        ") while attempting to read '" + params.url + "'");
             }
         }
-    }
-}
+    }; // end of anonymous function
+
+    httpReq.send(null); // initiate ajax call
+
+} // end function ajax2

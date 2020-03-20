@@ -6,7 +6,13 @@
 
 
 function searchUsers(inBox){
-    ajax("webAPIs/listUsersApi.jsp", fill);
+    var params = {};
+    params.url = "webAPIs/listUsersApi.jsp";
+    params.successFn = fill;
+    
+    
+    //ajax("webAPIs/listUsersApi.jsp", fill); // old pre-ajax2 implementation
+    ajax(params);
     
     
     

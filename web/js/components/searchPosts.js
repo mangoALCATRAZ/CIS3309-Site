@@ -6,7 +6,12 @@
 
 
 function searchPosts(inBox){
-    ajax("webAPIs/listPostApi.jsp", fill);
+    var params = {};
+    params.url = "webAPIs/listPostApi.jsp";
+    params.successFn = fill;
+    
+    //ajax("webAPIs/listPostApi.jsp", fill); // old pre ajax2 implementation
+    ajax(params);
     
     
     

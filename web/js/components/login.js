@@ -25,13 +25,20 @@ login.UI = function(id){
 
 login.findUser = function(emailIn, passIn, msgIdIn){
     var URLappend = "?email=" + emailIn + "&pass=" + passIn; // page refreshes after this
-    history.pushState(null, '', URLappend); // should append the current url without refreshing. this took forever to figurre out.
+  //  history.pushState(null, '', URLappend); // should append the current url without refreshing. this took forever to figurre out.
     this.msgId = msgIdIn;
     
     var pleaseWait = "<p>Plesae Wait...</p>";
     document.getElementById(this.msgId).innerHTML = pleaseWait;
     
-    ajax("webAPIs/logonAPI.jsp", this.results);
+    var params = {};
+    params.url = "webAPIs/logonAPI.jsp";
+    params.successFn = login.results;
+    params.query = URLappend;
+    
+    
+    //ajax("webAPIs/logonAPI.jsp", this.results); //old, pre ajax2 implementation
+    ajax(params);
     // query is picked up by server-side and is handled.
     
     
