@@ -1,7 +1,8 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * logout.js
+ * 
+ * Very simple. Simply makes an AJAX call to the server to execute logoffAPI.jsp,
+ * which invalidates the session, resulting in a logout. This function then notifies the user once this occurs.
  */
 
 

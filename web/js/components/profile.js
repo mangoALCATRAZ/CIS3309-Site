@@ -1,7 +1,10 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * profile.js
+ * 
+ * Called by index.htmll
+ * An AJAX call is made to getProfileAPI.jsp, which checks the current session for a saved profile object.
+ * IF one is found, the page is swapped for the profile page for the user object that is returned. Otherwise,
+ * the page does not change, and the user is notified that they must be logged into to view their profile. 
  */
 
 
@@ -14,6 +17,7 @@ function profile(id){
     var params = {};
     params.url = "webAPIs/getProfileAPI.jsp";
     params.successFn = succ;
+    params.failFn = fail;
     
     ajax(params);
     
@@ -23,11 +27,12 @@ function profile(id){
             document.getElementById(id).innerHTML = content;
             makeTable(jsObjIn.List, "inputDiv", "tableDiv", "userEmail");
         }
-        else{
-            alert(jsObjIn.List[0].errorMsg);
-        }
         
         return;
+    }
+    
+    function fail(){
+        alert("You are not logged in.");
     }
     
     return;
