@@ -12,7 +12,14 @@ function blog(viewID){
                        </div>
                        <div class="content">
                             <p class="centerText"><br />Blog 5 - Web API <br /><br /> For this homework, I implemented the more encapsulated version of the Web API provided in the sample code, API 2. This meant that in order to effectively implement it within my website, i would have to substantially alter the java source code it was based on. In order to facilitate sorting data from the DB for posts rather than users, I made an interface to handle StringData objects, and made individual StringData classes that implement it.<br /><br />This allows similar data to have different properties and methods, while being treated the same way by the StringDataList object, which sorts it and reports back. This was crucial, because every new call to the DB requires different data types being read, and having an efficient way of handling this is vital. All one needs to do with this biuld is create a new class that extends StringDataInterface.<br /><br />The basic concept of the web api was not difficult to understand. Wading through the encapulated code sample definitely proved to be the most tedious part of this homework, however. Once I had what each piece did, though, it was not difficult to adapt this to my web application.<br /><br />Here is a link to the word document with database errors.<br /><a href='webAPIs/listUsersApi.jsp'>Here</a> is a link to the Users Api. <br /><a href='webAPIs/listPostApi.jsp'>Here</a> is the link to the User Posts api.<br /><br /></p>
-                       </div>`;
+                       </div>
+                       <div class="content">
+                            <p class="centerText"><br />Blog 6 - Logon/Logoff API HW<br /><br />This was easily the most difficult assingment yet. Not only with Temple making the transition to online classes, and my grandfather potentially becoming sick, but also because this assignment very much required understanding how the client-side JS and http requests interact with the server-side java, and its database connection. I got very stuck at one point attempting to figure out how to send a URL query, as per instructions, to the server-side code, before eventually realizing that it must be appended to the end of the API Url in the http request. Fortunately, I made use of and expanded on Sally K's ajax2.js, which allowed for extension of the amount of params that the ajax formula takes, making implementing a query parameter trivial.</p>
+                            <p class="centerText"><br /><br />Link to Logon API <a href="webAPIs/logonAPI.jsp?email=mangoALCATRAZ@dump.com&pass=password">here</a><br />
+                            Link to Logoff API <a href="webAPIs/logoffAPI.jsp">here</a><br />
+                            Link to Get Profile API <a href="webAPIs/getProfileAPI.jsp">here</a>
+                            Link to Get All Users API <a href="webAPIs/listUsersApi.jsp">here</a></p>
+                        </div>`;
     
     document.getElementById(viewID).innerHTML = blogContent;
 }

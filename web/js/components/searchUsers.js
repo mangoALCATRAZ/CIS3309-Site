@@ -17,6 +17,7 @@ function searchUsers(inBox){
     
     
     var content = `<div class="contentColumn">
+                        <p>List of Users</p>
                         <div id="inputDiv"></div>
                         <div id="tableDiv"></div>
                    </div>`;
