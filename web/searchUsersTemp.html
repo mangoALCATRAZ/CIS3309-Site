@@ -6,85 +6,61 @@ Source code: Features routing framework, dropdown menus, and a fluid layout.
 
 As of: 1/27/2020 site functionality not added yet.
 -->
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>://dump - A dumping ground of user-generated content.</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="style/style.css" rel="stylesheet" type="text/css" />
-    </head>
-    <body onresize="windowWidthInitCheck('content', 'header', PORTRAIT_WIDTH)">
-        <div class="header">
-            <div class="title">
-                <h1>://dump</h1>
-            </div>
-            <div class="navFlex">
-                <div class="dropDownFlex">
-                    <a href="#/home"><img src="icons/dark/home_icon_H24.png" alt="home"/></a>
-                </div>
-                <div class="dropDownFlex" >
-                    <a href="#/blog"><img src="icons/dark/blog_icon_H24.png" alt="blog" /></a>
-                </div>
-                <div class="dropDownFlex" onclick="dropDown('dropContent3')">
-                    <img src="icons/dark/account_dd_icon_H24.png" alt="account" />
-                    <div class="dropContent" id="dropContent3">
-                        <div><p>Subitem 1</p></div>
-                        <div><p>Subitem 2</p></div>
-                        <div><p>Subitem 3</p></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h1 style="text-align: center;">A dumping ground of user-generated content!</h1>
-        <div class="outsideContent">
-            <div id="viewBox">
+<body>
+
+<p>Click "Try it". Wait 3 seconds, and the page will alert "Hello".</p>
+<p id="pId">0</p>
+
+<div id="divId">
+<button id="but">Try It</button>
+</div>
+
+<script>
+go();
+function go(){
+    var buttonEle = document.getElementById("but");
+    buttonEle.pressedOnce = false;
+    buttonEle.greyedOut = false;
+    buttonEle.num = 0;
+    
+    buttonEle.greyOut = function(obj){
+        if(obj.greyedOut === false){
+            obj.greyedOut = true;
+        }
+        else{
+            obj.greyedOut = false;
+        }
+    };
+    
+    //div.innerHTML = buttonEle;
+    buttonEle.addEventListener("click", function(){
+    	var pId = document.getElementById("pId");
+        if(this.pressedOnce === false){
+        	this.pressedOnce = true;
+                var func = this.greyOut;
+                var obj = this;
+                window.setTimeout(func, 3000, obj);
+        }
+        if(this.greyedOut === false){
+        	var snd = new Audio("smw_coin.wav");
+                snd.play();
                 
-                
-                <div class="contentColumn">
-                    <div class="inputDiv"></div>
-                    <div class = "tableDiv"></div>
-                </div>
-                
-                
-            </div>
-        </div>
-        <div class ="footer">
-            <p style="color: white">Matthew Angelucci 2020</p>
-        </div>;
-        <script type="text/javascript" src="js/dropDown.js"></script>
-        <script type="text/javascript" src="js/dropInit.js"></script>
-        <script type="text/javascript" src="js/windowWidthInitCheck.js"></script>
-        <script type="text/javascript" src="js/components/blog.js"></script>
-        <script type="text/javascript" src="js/components/home.js"></script>
-        <script type="text/javascript" src="js/components/searchUsers.js"></script>
-        <script type="text/javascript" src="js/routeFW.js"></script>
-        <script type="text/javascript" src="js/ajax.js"></script>
-        <script type="text/javascript">
-            var PORTRAIT_WIDTH = 730;
-            
-            var globalRoutes = [];
-            
-            globalRoutes['#/'] = home;
-            globalRoutes['#/home'] = home;
-            globalRoutes['#/blog'] = blog;
-            globalRoutes['#searchUsers'] = searchUsers;
-            
-            var routing = routeFW({
-                viewID: "viewBox",
-                routeArray: globalRoutes
-            });
-            
-            dropInit("dropContent"); //Initializes drop down menus to "hidden". Done because of errors found in debugging
-            windowWidthInitCheck("content", "header", PORTRAIT_WIDTH);
-            dropDown("dropDownFlex", "dropContent");
-            
-            ajax("json/userPost.json", userPostJSON);
-            
-            function userPostJSON(jsObjIn){
-                console.log("\n\nThe object exists here.\n\n");
-                var first = jsObjIn[0].name;
-                console.log("\n\n" + first);
-            }
-        </script>
-    </body>
+                var increm = Math.floor(Math.random() * 24);
+                this.num = this.num + increm;
+        	pId.innerHTML = this.num;
+        }
+        else{
+            this.innerHTML = "grey";
+        }
+        //function countDown(obj){
+        //	obj.greyedOut = true;
+        //}
+        
+    });
+}
+</script>
+
+</body>
 </html>

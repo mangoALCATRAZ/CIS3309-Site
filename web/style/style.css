@@ -131,6 +131,37 @@ and open the template in the editor.
                 border-radius: 25px;
                 text-align: justify;
             }
+            .contentReverseRow{
+                width: 90%;
+                max-width: 1396px;
+                min-width: 450px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 3%;
+                overflow: auto;
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                
+                background-color: #FFEAD1;
+                border-radius: 25px;
+                text-align: justify;
+            }
+            
+            .postContent{
+                width: 50%;
+            }
+            .userInfo{
+                width: 30%;
+            }
+            .profileImg{
+                max-width: 170px;
+            }
+            .postContentImg{
+                max-width: 560px;
+            }
+            
+            
             .contentColumn{
                 width: 90%;
                 max-width: 1396px;

@@ -35,7 +35,7 @@
 function ajax (params){
     
     // expecting params properties url, successFn, and errorId
-    if (!params || !params.url || !params.successFn) {
+    if (!params || !params.url || (!params.successFn && !params.failFn)) {
         alert ("function ajax requires an input parameter object with properties: url, successFn.");
         return;
     }

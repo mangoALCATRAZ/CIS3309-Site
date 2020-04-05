@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_Final_2/web/js/components/searchUsers.js</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_Final_2/web/js/components/profile.js</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_Final_2/web/js/windowWidthInitCheck.js</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_Final_2/web/webAPIs/getProfileAPI.jsp</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_Final_2/web/js/ajax.js</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_Final_2/web/js/components/logout.js</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_Final_2/web/js/components/login.js</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_Final_2/web/js/components/home.js</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_Final_2/web/js/components/blog.js</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_Final_2/web/js/components/searchPosts.js</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_Final_2/web/webAPIs/logoffAPI.jsp</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_Final_2/web/webAPIs/logonAPI.jsp</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_Final_2/web/index.html</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_Final_2/web/webAPIs/checkIfLoggedInAPI.jsp</file>
-            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/CIS3309-Site_Final_2/web/style/style.css</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/Experimental/CIS3309-Site/web/js/components/blog.js</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/Experimental/CIS3309-Site/web/index.html</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/Experimental/CIS3309-Site/web/style/likeButtonCSS.css</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/Experimental/CIS3309-Site/web/js/buttonEleFuncs.js</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/Experimental/CIS3309-Site/web/style/style.css</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/Experimental/CIS3309-Site/web/js/components/FIPdemo.js</file>
+            <file>file:/C:/Users/Matt/Documents/NetBeansProjects/Experimental/CIS3309-Site/web/webAPIs/updateLikeCountApi.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -12,6 +12,7 @@ As of: 1/27/2020 site functionality not added yet.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="style/style.css" rel="stylesheet" type="text/css" />
+        <link href="style/likeButtonCSS.css" rel="stylesheet" type="text/css" />
     </head>
     <body onresize="windowWidthInitCheck('content', 'header', PORTRAIT_WIDTH)">
         <div class="header">
@@ -58,16 +59,18 @@ As of: 1/27/2020 site functionality not added yet.
         <script type="text/javascript" src="js/components/login.js"></script>
         <script type="text/javascript" src="js/components/profile.js"></script>
         <script type="text/javascript" src="js/components/logout.js"></script>
+        <script type="text/javascript" src="js/components/FIPdemo.js"></script>
         <script type="text/javascript" src="js/routeFW.js"></script>
         <script type="text/javascript" src="js/ajax.js"></script>
         <script type="text/javascript" src ="js/makeTable.js"></script>
+        <script type="text/javascript" src="js/buttonEleFuncs.js"></script>
         <script type="text/javascript">
             var PORTRAIT_WIDTH = 730;
             
             var globalRoutes = [];
             
-            globalRoutes['#/'] = home;
-            globalRoutes['#/home'] = home;
+            globalRoutes['#/'] = FIPdemo;
+            globalRoutes['#/home'] = FIPdemo;
             globalRoutes['#/blog'] = blog;
             globalRoutes['#/searchUsers'] = searchUsers;
             globalRoutes['#/searchPosts'] = searchPosts;
