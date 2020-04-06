@@ -19,6 +19,9 @@ function blog(viewID){
                             Link to Logoff API <a href="webAPIs/logoffAPI.jsp">here</a><br />
                             Link to Get Profile API <a href="webAPIs/getProfileAPI.jsp">here</a>
                             Link to Get All Users API <a href="webAPIs/listUsersApi.jsp">here</a></p>
+                        </div>
+                        <div class="content">
+                            <p class="centerText"><br />Blog 7 - Tutorial Component<br /><br />This Tutorial project was a clear example of taking an abstract idea and implementing it. Implementing the Fake Internet Points like button required me to further dive into JS and Java-serverside development much further than I had before<br /><br />I had to skip ahead to the next assignment, update, to review the sample code to figure out how to update the amount of likes each post has in the database. This was by far the most difficult part of the assignment: wrangling together a new non-table collection of posts by likes, and updating the database via jsp.</p>"
                         </div>`;
     
     document.getElementById(viewID).innerHTML = blogContent;
