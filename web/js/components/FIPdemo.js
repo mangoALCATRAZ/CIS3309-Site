@@ -5,11 +5,68 @@
  */
 
 function FIPdemo(viewID){
+    var logInRet; // user id string
+    var loggedIn = false; //flag for if the user is logged in or not
+    var masterListObj = null; // object that contains master list, null if not logged in
+    var gotMasterList;
+    
+    
+    function logInSuccess(objIn){
+        logInRet = objIn;
+        
+    }
+    function logInFail(){
+        logInRet = null;
+        gotMasterList = false;
+        
+    }
+    
+    checkLoggedIn(logInSuccess, logInFail);
+    
+    loggedIn = logCheck(logInRet);
+    
+    setTimeout(logCheck, logInRet, 3000);
+    
+    
+    
+    function logCheck(logInRetIn){
+        
+        
+        if(logInRet === null || logInRet === undefined){
+            loggedIn = false;
+        }
+        
+        
+    }
+    
+    
+    if(loggedIn === true){ // if logged in
+        
+        var paramsGetMasterList = {};
+        paramsGetMasterList.url = "webAPIs/getMasterListByUserIdAPI.jsp";
+        paramsGetMasterList.failFn = function(){
+            loggedIn = true;
+        };
+        paramsGetMasterList.successFn = function(objIn){
+            loggedIn = true;
+            masterListObj = objIn;
+            gotMasterList = true;
+        };
+        paramsGetMasterList.query = "?userId=" + logInRet;
+        
+        ajax(paramsGetMasterList);
+    }
+    
+    
+    
+    
     var params = {};
     params.url = "webAPIs/listPostByLikeApi.jsp"; // get list of posts in order descended bylike
     params.successFn = fill;
     
     ajax(params);
+    
+    // header text below
     
     var numOfPosts;
     var postIncrem = 0;
@@ -23,6 +80,9 @@ function FIPdemo(viewID){
     descDiv.innerHTML = descHTML;
     document.getElementById(viewID).appendChild(descDiv);
     
+    
+    // this function fills out a list of user posts in order by like descending. 
+    //      it also takes advantage of the greyed-out parameters established earlier.
     function fill(jsObjIn){
         numOfPosts = jsObjIn.List.length;
         for(var i = 0; i < jsObjIn.List.length; i++){
@@ -74,9 +134,34 @@ function FIPdemo(viewID){
             upImgEle.src = "icons/up.png";
             
             var butId = "but" + i;
-            var buttonEle = document.getElementById(butId);
             
-            buttonEleFuncs(buttonEle, jsObjIn.List[i].userPostId, i);
+            // this is where the like button is declared. Gotten from the HTML
+            // already injected
+            var buttonEle = document.getElementById(butId); 
+            
+            
+            var gray; // keeps track of whether or not this button is grayed out
+            
+            
+            
+            if(loggedIn === false){
+                gray = true;
+            }
+            else if(checkMasterList(logInRet, masterListObj) === true){
+                gray = true;
+                
+            }
+            else{
+                gray = false;
+            }
+            
+            buttonEleFuncs(buttonEle, jsObjIn.List[i].userPostId, i, gray, logInRet);
+            
+            
+            // old buttonEle code before. This has since been encapsulated in buttonEleFuncs.
+            
+            // preserved down here for future reference.
+            
             /*buttonEle.i = i;
             buttonEle.postId = jsObjIn.List[i].userPostId;
             buttonEle.pressedOnce = false;

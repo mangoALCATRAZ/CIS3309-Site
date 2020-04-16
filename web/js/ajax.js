@@ -71,7 +71,8 @@ function ajax (params){
                 }
                 catch(Exception){
                     console.log("Error in parsing json. Treating as if there is no JSON intended to be passed, and calling function without params.");
-                    if(httpReq.responseText !== null){ // not a json object, but a string was sent back
+                    var char = httpReq.responseText.charAt(4);
+                    if(httpReq.responseText !== null && char === ""){ // not a json object, but a string was sent back
                         params.successFn(httpReq.responseText);
                         if(params.passFlag){
                             params.passFlag = true;             

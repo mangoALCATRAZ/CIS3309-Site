@@ -16,8 +16,15 @@ Deprecated as of currently but perhaps not for long?
     Object login = session.getAttribute("webUser");
     
     if(login != null){ // you're already logged in! alert
-        String ret = "in";
+        Object ret = session.getAttribute("id");
+        
+        String retString = ret.toString();
+        
         out.print(ret);
+    }
+    
+    else{
+        out.print("err");
     }
     
 %>

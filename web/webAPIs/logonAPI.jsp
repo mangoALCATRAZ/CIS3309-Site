@@ -34,7 +34,7 @@
         StringDataList list = new StringDataList();
         list.dbError = dbc.getErr(); // returns "" if connection is good, else db error msg.
 
-        StringData sess = new StringDataUser();
+        StringDataUser sess = new StringDataUser();
     
     
         String email = request.getParameter("email");
@@ -44,6 +44,7 @@
         list.add(sess); // results are added to the output
     
         session.setAttribute("webUser", sess);
+        session.setAttribute("id", sess.webUserId);
     
         dbc.close();
     
